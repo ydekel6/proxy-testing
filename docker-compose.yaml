@@ -6,15 +6,13 @@ services:
     ports:
       - "80:80"
     volumes:
-      - $PWD/html:/usr/share/nginx/html
+      - $PWD/html/:/etc/nginx/html/
       - $PWD/config/:/etc/nginx/conf.d/
     networks: 
       - backend
   webapp:
     container_name: webapp
     image: tutum/hello-world
-    ports: 
-      - "1500:80"
     networks: 
       - backend
 networks: 
