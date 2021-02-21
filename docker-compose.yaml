@@ -1,0 +1,21 @@
+version: '3'
+services: 
+  proxy:
+    container_name: proxy
+    image: nginx
+    ports:
+      - "80:80"
+    volumes:
+      - $PWD/html:/usr/share/nginx/html
+      - $PWD/config/nginx.conf:/etc/nginx/conf.d/nginx.conf
+    networks: 
+      - backend
+  webapp:
+    container_name: webapp
+    image: tutum/hello-world
+    ports: 
+      - "1500:80"
+    networks: 
+      - backend
+networks: 
+  backend:
