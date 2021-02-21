@@ -7,7 +7,7 @@ services:
       - "80:80"
     volumes:
       - $PWD/html:/usr/share/nginx/html
-      - $PWD/config/nginx.conf:/etc/nginx/conf.d/nginx.conf
+      - $PWD/config/:/etc/nginx/conf.d/
     networks: 
       - backend
   webapp:
